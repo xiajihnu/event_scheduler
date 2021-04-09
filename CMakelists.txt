@@ -1,0 +1,19 @@
+#cmake -DTARGET_CPU:STRING=x86
+
+#message(build module = ${MODULE})
+
+
+option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
+option(GTEST_HAS_PTHREAD "Disable pthread" OFF)
+cmake_minimum_required(VERSION 3.0)
+
+set(PROJECT_MODULE ${MODULE}_unit)
+project(${PROJECT_MODULE})
+
+# 设置可执行文件输出路径,实现需求2
+#set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+
+# 添加子目录
+add_subdirectory(test/${MODULE})
+
+add_subdirectory(gtest)
